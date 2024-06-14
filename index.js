@@ -21,7 +21,7 @@ axios
 了解详情:[sunsetbot](https://sunsetbot.top/)
 `,
     };
-    console.log('发送的消息',msg)
+    console.log("发送的消息", msg);
     sendMsg(msg);
   })
   .catch((e) => {
@@ -48,6 +48,7 @@ function extractTimeInfo(htmlString) {
 
 function sendMsg(msg) {
   const keys = process.env.SENDKEYS.split(",");
+  console.log(process.env.SENDKEYS.length, keys.length);
   Promise.all(
     keys.map((v) => {
       return () =>
