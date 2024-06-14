@@ -21,6 +21,7 @@ axios
 了解详情:[sunsetbot](https://sunsetbot.top/)
 `,
     };
+    console.log('发送的消息',msg)
     sendMsg(msg);
   })
   .catch((e) => {
