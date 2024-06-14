@@ -48,14 +48,12 @@ function extractTimeInfo(htmlString) {
 
 function sendMsg(msg) {
   const keys = process.env.SENDKEYS.split(",");
-  console.log(process.env.SENDKEYS.length, keys.length);
   Promise.all(
-    keys.map((v) => {
-      return () =>
-        axios.get(v, {
-          params: msg,
-        });
-    })
+    keys.map((v) =>
+      axios.get(v, {
+        params: msg,
+      })
+    )
   ).catch((e) => {
     console.log("---errorsend---");
     console.error(e);
