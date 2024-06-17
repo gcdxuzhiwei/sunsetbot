@@ -4,7 +4,7 @@ Promise.all([main("set_1", "今日"), main("set_2", "明日")])
   .then((res) => {
     sendMsg({
       title: res[0].title,
-      desp: res[0].desp + res[1].title + res[1].desp,
+      desp: res[0].desp + "\n" + res[1].title + "\n" + res[1].desp,
     });
   })
   .catch((e) => {
