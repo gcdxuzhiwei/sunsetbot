@@ -16,16 +16,17 @@ async function fetchData() {
 async function createWidget(data) {
   const widget = new ListWidget();
 
-  const title = addCenteredText(widget, data.quality_des);
-  title.font = Font.boldSystemFont(16);
+  addCenteredText(widget, data.quality_des, 16, true);
   widget.addSpacer(5);
-  addCenteredText(widget, extractTimeInfo(data.table_content));
+  addCenteredText(widget, extractTimeInfo(data.table_content), 13, false);
   widget.addSpacer(5);
   addCenteredText(
     widget,
     `${data.local_quality.toFixed(3)} ${data.local_aod.toFixed(3)} (${
       data.aod_des
-    })`
+    })`,
+    10,
+    false
   );
 
   // Set refresh interval
@@ -35,10 +36,10 @@ async function createWidget(data) {
   return widget;
 }
 
-function addCenteredText(widget, text) {
+function addCenteredText(widget, text, size, bold) {
   const textItem = widget.addText(text);
   textItem.centerAlignText();
-  return textItem;
+  textItem.font = Font[bold ? "boldSystemFont" : "systemFont"](size);
 }
 
 function isAfterHour(num) {
