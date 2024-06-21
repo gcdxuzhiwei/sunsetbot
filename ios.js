@@ -18,9 +18,9 @@ async function createWidget(data) {
 
   const title = addCenteredText(widget, data.quality_des);
   title.font = Font.boldSystemFont(16);
-  widget.addSpacer();
+  widget.addSpacer(5);
   addCenteredText(widget, extractTimeInfo(data.table_content));
-  widget.addSpacer();
+  widget.addSpacer(5);
   addCenteredText(
     widget,
     `${data.local_quality.toFixed(3)} ${data.local_aod.toFixed(3)} (${
