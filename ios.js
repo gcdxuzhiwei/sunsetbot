@@ -29,7 +29,6 @@ async function createWidget(data) {
     false
   );
 
-  // Set refresh interval
   const refreshInterval = (30 + Math.round(10 * Math.random())) * 60 * 1000;
   widget.refreshAfterDate = new Date(Date.now() + refreshInterval);
 
